@@ -1,0 +1,22 @@
+.checkboxWrapper {
+  display: flex;
+
+
+  .checkboxContainer {
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    width: 100%;
+  }
+  .checkboxField {
+    width: 20px;
+    height: 20px;
+  }
+  .label {
+    width: 250px;
+    font-size: var(--font-size-m);
+  }
+  .caption {
+    margin-left: 10px;
+  }
+}

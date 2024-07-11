@@ -1,0 +1,14 @@
+.selectContainer {
+  display: flex;
+  gap: 10px;
+  .label {
+    width: 250px;
+    font-size: var(--font-size-m);
+    margin-top: 5px;
+  }
+  .select {
+    width: 382px;
+    height: 31px;
+    padding: 5px 10px;
+  }
+}

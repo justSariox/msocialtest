@@ -1,0 +1,72 @@
+.inputWrapper {
+  display: flex;
+  gap: 10px;
+  .label {
+      width: 250px;
+      font-size: var(--font-size-m);
+      margin-top: 5px;
+  .required {
+    color: var(--color-red);
+  }
+  }
+
+  .inputContainer {
+    position: relative;
+    min-width: 360px;
+  }
+
+  .input {
+    all: unset;
+    width: 360px;
+    height: 21px;
+    padding: 5px 10px;
+
+    border: var(--color-dark-100) solid 1px;
+    border-radius: 2px;
+  }
+
+  .passwordControl {
+    cursor: pointer;
+
+    position: absolute;
+    top: 4px;
+    right: 10px;
+
+    display: inline-block;
+
+    width: 22px;
+    height: 19px;
+  }
+
+  .hidePassword {
+    background: url('../../assets/svg/eye-outline.svg') 0 0 no-repeat;
+  }
+
+  .showPassword {
+    background: url('../../assets/svg/eye-off-outline.svg') 0 0 no-repeat;
+  }
+
+  .error {
+    all: unset;
+
+    min-width: 360px;
+    height: 21px;
+    padding: 5px 10px;
+
+    border: var(--color-red) solid 1px;
+    border-radius: 2px;
+
+    &::placeholder {
+      color: var(--color-red);
+    }
+  }
+
+  .errorMessage {
+    color: var(--color-red);
+  }
+
+  .caption {
+    color: var(--color-light-300);
+    margin-top: 5px;
+  }
+}

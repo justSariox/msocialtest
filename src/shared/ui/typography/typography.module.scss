@@ -1,0 +1,23 @@
+@mixin typography($fS, $lH, $fW) {
+  margin: 0;
+  font-size: $fS;
+  font-weight: $fW;
+  line-height: $lH;
+}
+
+.h1 {
+  @include typography(var(--font-size-l), var(--line-height-l), var(--font-weight-bold));
+}
+
+.body1 {
+  @include typography(var(--font-size-m), var(--line-height-m), var(--font-weight-regular));
+}
+
+.body2 {
+  @include typography(var(--font-size-s), var(--line-height-m), var(--font-weight-regular));
+}
+
+.caption {
+  @include typography(var(--font-size-xs), var(--line-height-m), var(--font-weight-regular));
+}
+

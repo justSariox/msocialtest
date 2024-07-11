@@ -1,0 +1,42 @@
+.button {
+  all: unset;
+  cursor: pointer;
+  display: flex;
+  gap: 5px;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  max-height: 36px;
+  padding: 6px 28px;
+  font-family: var(--font-family-primary);
+  font-size: var(--font-size-s);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--line-height-m);
+  border-radius: 4px;
+
+  &:disabled {
+    cursor: default;
+  }
+}
+
+.primary {
+    color: var(--color-light-100);
+    background-color: var(--color-green-100);
+    box-shadow: 0 4px 18px 0 rgb(113 200 56 / 35%);
+
+    &:focus:enabled {
+      background-color: var(--color-green-100);
+      outline: 2px solid var(--color-blue);
+    }
+
+    &:hover:enabled {
+      background-color: var(--color-green-300);
+    }
+
+    &:disabled {
+      color: var(--color-dark-300);
+      background-color: var(--color-light-300);
+      box-shadow: none;
+
+    }
+}
