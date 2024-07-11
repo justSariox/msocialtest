@@ -2,8 +2,9 @@ import {Input, Button, Typography, Checkbox, Select, Divider} from "@/shared/ui"
 import { CAPTIONS } from "@/shared/constants";
 import { getDate } from "@/shared/utils/getDate";
 import s from './form.module.scss';
-import {errors, phoneMask, Values} from "@/shared/utils";
+import { phoneMask} from "@/shared/utils";
 import {ChangeEvent, FormEvent} from "react";
+import {Values, errors} from "@/shared/utils/formValidate.ts";
 
 type Props = {
     values: Values
@@ -17,27 +18,22 @@ export const Form = (props: Props) => {
 
     return (
         <form onSubmit={handleSubmit} className={s.form}>
-                <div className={s.formItem}>
-                    <Input
-                        type="text"
-                        error={errors.fullName}
-                        value={values.fullName}
-                        handleChange={handleChange}
-                        caption={CAPTIONS.CAPTION_NAME}
-                        required
-                        label="Имя"
-                        name="fullName"
-                    />
-                </div>
-                <div className={s.formItem}>
-                    <Select
-                        handleChange={handleChange}
-                        value={values.city}
-                        error={errors.city}
-                    />
-                </div>
+            <Input
+                type="text"
+                error={errors.fullName}
+                value={values.fullName}
+                handleChange={handleChange}
+                caption={CAPTIONS.CAPTION_NAME}
+                required
+                label="Имя"
+                name="fullName"
+            />
+            <Select
+                handleChange={handleChange}
+                value={values.city}
+                error={errors.city}
+            />
             <Divider />
-            <div>
                 <Input
                     type="password"
                     error={errors.password}
@@ -48,8 +44,6 @@ export const Form = (props: Props) => {
                     label="Пароль"
                     name="password"
                 />
-            </div>
-            <div>
                 <Input
                     type="password"
                     error={errors.confirmPassword}
@@ -60,9 +54,7 @@ export const Form = (props: Props) => {
                     label="Пароль еще раз"
                     name="confirmPassword"
                 />
-            </div>
             <Divider />
-            <div>
                 <Input
                     type="tel"
                     value={phoneMask(values.phone)}
@@ -72,8 +64,6 @@ export const Form = (props: Props) => {
                     name="phone"
                     placeholder="+7 (***) ***-**-**"
                 />
-            </div>
-            <div>
                 <Input
                     type="text"
                     error={values.checkboxState === 'on' ? errors.email : ''}
@@ -84,11 +74,7 @@ export const Form = (props: Props) => {
                     label="Электронная почта"
                     name="email"
                 />
-            </div>
-
-            <div>
                 <Checkbox handleChange={handleChange} />
-            </div>
             <div className={s.submitBlock}>
                 <Button type="submit" className={s.formButton}>
                     Изменить

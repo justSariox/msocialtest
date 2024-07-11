@@ -5,7 +5,6 @@ import s from "./main.module.scss";
 
 export const MainPage = () => {
     const { values, errors, handleSubmit, handleChange } = useForm();
-    console.log(errors)
     return (
         <div>
             <div className={s.mainPage}>

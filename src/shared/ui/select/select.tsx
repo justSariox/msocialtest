@@ -2,6 +2,7 @@ import {biggestCity, formatCities} from "@/shared/utils/formatCities.ts";
 import {ChangeEvent} from "react";
 
 import s from './select.module.scss'
+import {Typography} from "@/shared/ui";
 
 type Props = {
     handleChange?: (e: ChangeEvent<HTMLSelectElement>) => void
@@ -10,10 +11,10 @@ type Props = {
 }
 
 export const Select = ({ handleChange, value, error }: Props) => {
+    console.log(error)
     const citiesList = formatCities().filter(city => city.population !== biggestCity().population).map((city) => {
         return (
             <option
-                className={s.option}
                 key={city.population.toString()}
                 value={city.city}>
                 {city.city}
@@ -26,24 +27,26 @@ export const Select = ({ handleChange, value, error }: Props) => {
             <label className={s.label} htmlFor='cities'>
                 Ваш город
             </label>
-            <select
-                className={s.select}
-                value={value}
-                name='city'
-                id='cities'
-                onChange={handleChange}
-                required>
-                <option className={s.option} value='Выберите город' disabled>
-                    Выберите город
-                </option>
-                <option className='select__option' value={biggestCity().city}>
-                    {biggestCity().city}
-                </option>
-                {citiesList}
-            </select>
-            {error && (
-                <p className='select__error-caption'>{error}</p>
-            )}
+            <div>
+                <select
+                    className={s.select}
+                    value={value}
+                    name='city'
+                    id='cities'
+                    onChange={handleChange}
+                    required>
+                    <option value='Выберите город' disabled>
+                        Выберите город
+                    </option>
+                    <option value={biggestCity().city}>
+                        {biggestCity().city}
+                    </option>
+                    {citiesList}
+                </select>
+                {error ? (
+                    <Typography variant="caption" className={s.error}>{error}</Typography>
+                ) : ''}
+            </div>
         </div>
     );
 };

@@ -31,11 +31,10 @@ export function validateForm(values: Values) {
     }
     if (values.confirmPassword !== values.password) {
         errors.confirmPassword = ERRORS.ERROR_CONFIRM_PASSWORD;
-        console.log(ERRORS.ERROR_CONFIRM_PASSWORD);
     }
 
     if (values.city === 'Выберите город') {
-        errors.cityError = ERRORS.ERROR_CITY;
+        errors.city = ERRORS.ERROR_CITY;
     }
     return errors;
 }
